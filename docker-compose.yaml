@@ -1,0 +1,51 @@
+version: "3.2"
+
+services:
+  sonarqube:
+    image: ${SONAR_DOCKER_IMAGE}
+    container_name: sonarqube
+    environment:
+      SONAR_JDBC_URL: ${SONAR_JDBC_URL}
+      SONAR_JDBC_USERNAME: ${SONAR_JDBC_USERNAME}
+      SONAR_JDBC_PASSWORD: ${SONAR_JDBC_PASSWORD}
+    volumes:
+      - SonarQube_data:/opt/SonarQube/data
+      - SonarQube_extensions:/opt/SonarQube/extensions
+      - SonarQube_logs:/opt/SonarQube/logs
+    networks:
+      - sonar_network
+    ports:
+      - 9000:9000
+    depends_on:
+      - postgresql
+
+  postgresql:
+    build:
+      context: ./psql
+      args:
+        - postgres_docker_image=${POSTGRES_DOCKER_IMAGE}
+    restart: always
+    container_name: postgresql
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - 5432:5432
+    volumes:
+      - type: bind
+        source: ./psql/wormhole
+        target: /wormhole
+      - type: volume
+        source: pgdata
+        target: /var/lib/postgresql/data
+    networks:
+      - sonar_network
+
+volumes:
+  SonarQube_data:
+  SonarQube_extensions:
+  SonarQube_logs:
+  pgdata:
+
+networks:
+  sonar_network:
+    external: true
