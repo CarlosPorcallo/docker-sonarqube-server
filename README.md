@@ -1,4 +1,4 @@
-This is a [`Sonarqube`](https://www.sonarsource.com/products/sonarqube/) project launched with Docker [`Docker`](https://www.docker.com) and Docker Compose [`Docker Compose`](https://docs.docker.com/compose/).
+This is a [`Sonarqube`](https://www.sonarsource.com/products/sonarqube/) project launched with [`Docker`](https://www.docker.com) and [`Docker Compose`](https://docs.docker.com/compose/).
 
 ## Requirements
 
