@@ -1,4 +1,4 @@
-This is a [Sonarqube](https://www.sonarsource.com/products/sonarqube/) project launched with Docker [`Docker`](https://www.docker.com) and Docker Compose [`Docker Compose`](https://docs.docker.com/compose/).
+This is a [`Sonarqube`](https://www.sonarsource.com/products/sonarqube/) project launched with Docker [`Docker`](https://www.docker.com) and Docker Compose [`Docker Compose`](https://docs.docker.com/compose/).
 
 ## Requirements
 
@@ -16,13 +16,13 @@ This is a [Sonarqube](https://www.sonarsource.com/products/sonarqube/) project l
 chmod +x *.sh
 ```
 
-3.- Build and run the project using the built-in script:
+4.- Build and run the project using the built-in script:
 
 ```bash
 ./build.sh
 ```
 
-4.- Open the [SonarQube Server](http://localhost:9000/) and login in Sonar with the user/pass *admin*, follow the forward steps to configure. 
+5.- Open the [SonarQube Server](http://localhost:9000/) and login in Sonar with the user/pass *admin*, follow the forward steps to configure. 
 
 ## Getting Started
 
